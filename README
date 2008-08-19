@@ -1,0 +1,34 @@
+= Gmap Tags
+
+Created by: Benny Degezelle - gorilla-webdesign.be
+Version: 0.1
+Contact: benny AT gorilla-webdesign DOT be
+Adds a <r:gmap> tag to ease gmap implementation. 
+
+Any feedback greatly appreciated
+
+= Installation and usage:
+
+1/ rake radiant:extensions:gmaps:install
+
+	Copies gmaps.js to your instance javascripts folder.
+		
+2/ Get yourself a Gmap API key on http://code.google.com/apis/maps/signup.html
+
+3/ put these in your application header;
+
+	<script type="text/javascript" src="/javascripts/gmaps.js"></script>
+    <r:if_url matches="/directions">
+      <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=YOUR_API_KEY"></script>
+    </r:if_url>
+	
+	Replace YOUR_API_KEY and the if_url regexp with your own values.
+	If your Gmap is viewable on every page of your site, you can drop the if_url tag altogether of course.
+
+4/ Use the tag like so;
+
+	<r:gmap id="map" name="Tarra Lifestyle" ll="51.15394,2.96294" street="Stationsstraat 73" city="8470 Gistel" country="Belgium" balloon_stuff="<a href="http://maps.google.com/maps?f=q&hl=nl&geocode=&q=Stationsstraat+73,+8470+Gistel,+Gistel&sll=51.233547,2.963562&sspn=0.570098,1.227722&ie=UTF8&z=16&iwloc=addr&om=0">Grotere versie<\/a>" />
+	
+	The 'balloon_stuff' attribute can be any HTML that will be loaded onto the end of the balloon content. Be sure to escape all HTML closing tags.
+	
+You'll probably also want to edit gmaps.js to change the strings about directions, because those are in dutch atm.
