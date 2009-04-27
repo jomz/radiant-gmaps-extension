@@ -30,7 +30,7 @@ module GmapTags
       %{
         <div id="#{@id}"#{tag_options}> </div>
         <script type="text/javascript">
-          Event.observe(window, 'load', function (){ gmap('#{@id}','#{@name}',#{@ll},'#{@street}','#{@city}','#{@country}','#{@balloon_stuff}','#{I18n::Locale.to_s}'); }, false);
+          Event.observe(window, 'load', function (){ gmap('#{@id}','#{@name}',#{@ll},'#{@street}','#{@city}','#{@country}','#{@balloon_stuff}','#{I18n.locale.to_s}'); }, false);
         </script>
       }
     else
